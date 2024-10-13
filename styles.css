@@ -1,0 +1,210 @@
+/* General body styling */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(120deg, #a1c4fd, #c2e9fb); /* Soft gradient background */
+}
+
+
+
+/* Game container styling */
+#game-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.game-title {
+    font-size: 2rem; /* Adjust the size as needed */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Center the text */
+    color: #FFFFFF; /* Set text color to white for contrast */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Add a subtle shadow for depth */
+    background: linear-gradient(45deg, #00F260, #0575E6);
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Make the text fill transparent */
+    padding: 10px; /* Add padding around the text */
+    border-radius: 10px; /* Rounded corners */
+    }
+
+/* Timer styling */
+#timer {
+    font-size: 36px; /* Adjust the size as needed */
+    font-weight: bold; /* Make it bold */
+    color: #FF5722; /* You can choose a color that fits your theme */
+    text-align: center; /* Center the text */
+    margin: 20px; /* Add some margin for spacing */
+}
+
+/* Win message styling */
+#win-message {
+    font-size: 38px;
+    color: #ff5722;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Restart button styling */
+#restart-button {
+    padding: 12px 25px;
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(45deg, #00F260, #0575E6);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#restart-button:hover {
+    background-color: #45a049;
+}
+
+/* Game board grid styling */
+#game-board {
+    perspective: 1000px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    width: 90vw;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+/* Card styling */
+.card {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    background-color: #fff;
+    border-radius: 12px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+}
+
+.card.flipped {
+    transform: rotateY(180deg); /* Card flip effect */
+}
+
+.card-image {
+    background: pink;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    display: none; /* Hide until flipped */
+}
+
+.card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #00C9FF, #92FE9D);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    border-radius: 12px;
+    backface-visibility: hidden; /* Hide back side when flipping */
+}
+
+.card.flipped .card-image {
+    display: block; /* Show image when flipped */
+}
+
+.card.flipped .card-back {
+    display: none; /* Hide back when flipped */
+}
+
+/* Fireworks container styling */
+#fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* Custom styles for fireworks message */
+#fireworks h1 {
+    font-size: 70px;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card {
+        height: 100px;
+    }
+    #timer, #win-message {
+        font-size: 20px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+}
+
+#win-message {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4); /* Colorful background */
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Add shadow for effect */
+    z-index: 1000; /* Ensures it appears above everything */
+}
+
+#fireworks {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+}
+  
